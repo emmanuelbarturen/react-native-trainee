@@ -1,17 +1,16 @@
 # Contenido
 Cada funcionalidad está en una rama
 
-- Login
-- Registro
 - Splash ✔
+- Integración Socket.io ✔
+- Push Notification
+- Toast Messages
+- Uso de la cámara
+- Obtener ubicación GPS
+- Persistencia de datos en local storage
+- integración Redux
 - Auth con servidor
-- Tomar una fotografía
-- listado
-- Formulario Wizard
-- PopUps para mensajes de confirmación
-- Notificaciones
-- Tooltips
+    - Login
+    - Registro
+- Formulario wizard
 - GraphQL
-- Persistencia Local (Redux?)
-- Obtener ubicación por GPS
-- Comunicación en tiempo real (Socket.io?)
