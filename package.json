@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-custom-toast": "^1.0.4",
     "react-native-simple-toast": "^1.1.2"
   },
   "devDependencies": {
