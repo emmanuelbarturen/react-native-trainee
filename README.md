@@ -4,7 +4,7 @@ Cada funcionalidad está en una rama
 - Splash ✔
 - Integración Socket.io ✔
 - Push Notification
-- Toast Messages
+- Toast Messages ✔
 - Uso de la cámara
 - Obtener ubicación GPS
 - Persistencia de datos en local storage
