@@ -1,16 +1,8 @@
-# Contenido
-Cada funcionalidad está en una rama
+# Notificaciones Locales
+Mensajes del sistema hacia el usuario. En este ejemplo vamosa encontrar 
 
-- Splash ✔
-- Integración Socket.io ✔
-- Push Notification
-- Toast Messages
-- Uso de la cámara
-- Obtener ubicación GPS
-- Persistencia de datos en local storage
-- integración Redux
-- Auth con servidor
-    - Login
-    - Registro
-- Formulario wizard
-- GraphQL
+- Mensajes Toast
+- PopUps de confirmación simples
+
+### Docs
+https://www.npmjs.com/package/react-native-simple-toast
