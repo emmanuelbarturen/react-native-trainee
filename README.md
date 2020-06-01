@@ -1,16 +1,3 @@
-# Contenido
-Cada funcionalidad está en una rama
+# GPS
+https://reactnative.dev/docs/geolocation.html#:~:text=Geolocation%20is%20enabled%20by%20default,'Capabilities'%20tab%20in%20Xcode.
 
-- Splash ✔
-- Integración Socket.io ✔
-- Push Notification
-- Toast Messages ✔
-- Uso de la cámara
-- Obtener ubicación GPS
-- Persistencia de datos en local storage
-- integración Redux
-- Auth con servidor
-    - Login
-    - Registro
-- Formulario wizard
-- GraphQL
