@@ -6,7 +6,7 @@ Cada funcionalidad está en una rama
 - Push Notification
 - Toast Messages ✔
 - Uso de la cámara
-- Obtener ubicación GPS
+- Obtener ubicación GPS ✔
 - Persistencia de datos en local storage
 - integración Redux
 - Auth con servidor
