@@ -1,16 +1,14 @@
-# Contenido
-Cada funcionalidad está en una rama
+# Auth con Oauth2
 
-- Splash ✔
-- Integración Socket.io ✔
-- Push Notification
-- Toast Messages ✔
-- Uso de la cámara
-- Obtener ubicación GPS ✔
-- Persistencia de datos en local storage
-- integración Redux
-- Auth con servidor
-    - Login
-    - Registro
-- Formulario wizard
-- GraphQL
+
+## Server
+- levantar el servidor entrando a la carpeta oauth2 que contiene un proyecto laravel
+- crear una base de datos llamada `rn_oauth2`
+- configurar credenciales de base de datos en el .env
+- crear un virtual host para este proyecto, levantado con `php artisan serve` presenta algunos problemas al consultar
+
+
+
+```bash
+php artisan 
+```
