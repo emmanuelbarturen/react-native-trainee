@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "a6ddcf6c-2708-476f-b5f4-4d257a89f6f2",
+		"name": "Oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://oauth2.test/api/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "emmanuel",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ccervera4@vmc.la",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "c_password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://oauth2.test/api/register",
+					"protocol": "http",
+					"host": [
+						"oauth2",
+						"test"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://oauth2.test/api/details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiMTkyNjA5YTVkNTUwZjg3NjA3M2EyNGRmYTBhYmJhNzc4NDg4ZjUzZWIwMjkwNWMyZTQ1OGQ3OTVmMzA5ZmY5MDAxN2YxZmEzNDYzMGViNzUiLCJpYXQiOjE1OTExODA4MDAsIm5iZiI6MTU5MTE4MDgwMCwiZXhwIjoxNjIyNzE2ODAwLCJzdWIiOiIxMSIsInNjb3BlcyI6WyIqIl19.HBkG5dLCc6fiJIhYIb-f2DB0yhL0OSR1EncCS3_6GEOnJRlVLZKHurEFJXyaqCLOXtPlg4DxFvQnccKNJrPOHfFs62Ifyoj2A2nmGGuIWtikn4BJ4A4KD-6bpcNCdkpaNV1zj0T1Fox5Bq_NN5Ac75gILiRYgTzNGHxB3uDwnPb7mZY13_W_R-oO5ScpMTRJMW7t2E3rbaAHEKnHKEQmfAjwSufmraUeFT3f5XtvuzFjApPo5MEFBE6e0F935ovvD-kkpFYvJYIOzVje6g3sffuBUjRfbT3pViR4vxQ0a_s3IL28_BpwqFEJdCIAqXaX1eGhpus-9G6lney8QOgRYrNUF-p689_Q0jAhDpCeMKPUulFNa8ilccqVloQQbEpHARUc-72XxQrVPBtX1DcPKGHvrX7qlW0lXRKJtjQyIs8jvVCb01mHp-vfaQhekLcYbhdxKjQiMJ7BQ1TcxKj8thofcowYTLHP6KQ4ENAsfkXd117qt0_HFptiixPPIQeFLiN4-OYKweKTKyGjBC42DnEYNSj-tcTl1Uqavj9uGxJWls3CiSAghpUYrc9CaoZM_G2NBWhMeC5IdiMuj5v3m3dVF5qaGCe120wgRqgn_QEiJYqP0AH0YvcUGcqLRGZ9Ra0viFvXt90R2D4jiq46Ju7dQOL9encGDClipNQRP1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://oauth2.test/api/details",
+					"protocol": "http",
+					"host": [
+						"oauth2",
+						"test"
+					],
+					"path": [
+						"api",
+						"details"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

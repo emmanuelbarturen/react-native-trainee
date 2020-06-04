@@ -22,6 +22,7 @@ class UserLoginRequest extends FormRequest
      */
     public function rules()
     {
+        logger('Data from device', request()->all());
         return [
             'email' => 'required|email',
             'password' => 'required',
