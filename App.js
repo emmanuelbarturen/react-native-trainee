@@ -1,114 +1,130 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
-  SafeAreaView,
+  Image,
+  PixelRatio,
   StyleSheet,
-  ScrollView,
-  View,
   Text,
-  StatusBar,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+export default class App extends React.Component {
+  state = {
+    avatarSource: null,
+    videoSource: null,
+  };
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+  constructor(props) {
+    super(props);
+
+    this.selectPhotoTapped = this.selectPhotoTapped.bind(this);
+    this.selectVideoTapped = this.selectVideoTapped.bind(this);
+  }
+
+  selectPhotoTapped() {
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
+
+    ImagePicker.showImagePicker(options, response => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        let source = {uri: response.uri};
+
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({
+          avatarSource: source,
+        });
+      }
+    });
+  }
+
+  selectVideoTapped() {
+    const options = {
+      title: 'Video Picker',
+      takePhotoButtonTitle: 'Take Video...',
+      mediaType: 'video',
+      videoQuality: 'medium',
+    };
+
+    ImagePicker.showImagePicker(options, response => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled video picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        this.setState({
+          videoSource: response.uri,
+        });
+      }
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+          <View
+            style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}>
+            {this.state.avatarSource === null ? (
+              <Text>Select a Photo</Text>
+            ) : (
+              <Image style={styles.avatar} source={this.state.avatarSource} />
+            )}
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.selectVideoTapped.bind(this)}>
+          <View style={[styles.avatar, styles.avatarContainer]}>
+            <Text>Select a Video</Text>
+          </View>
+        </TouchableOpacity>
+
+        {this.state.videoSource && (
+          <Text style={{margin: 8, textAlign: 'center'}}>
+            {this.state.videoSource}
+          </Text>
+        )}
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  avatarContainer: {
+    borderColor: '#9B9B9B',
+    borderWidth: 1 / PixelRatio.get(),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  avatar: {
+    borderRadius: 75,
+    width: 150,
+    height: 150,
   },
 });
-
-export default App;
