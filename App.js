@@ -23,7 +23,10 @@ export default class App extends React.Component {
   }
 
   selectPhotoTapped() {
+    // docs de las options
+    //https://github.com/react-native-community/react-native-image-picker/blob/master/docs/Reference.md#options
     const options = {
+      title:'Selecciona una fotografía',
       quality: 1.0,
       maxWidth: 500,
       maxHeight: 500,
@@ -33,7 +36,7 @@ export default class App extends React.Component {
     };
 
     ImagePicker.showImagePicker(options, response => {
-      console.log('Response = ', response);
+      console.log('Response = ', response); //
 
       if (response.didCancel) {
         console.log('User cancelled photo picker');
@@ -55,6 +58,8 @@ export default class App extends React.Component {
   }
 
   selectVideoTapped() {
+    // docs de las options
+    //https://github.com/react-native-community/react-native-image-picker/blob/master/docs/Reference.md#options
     const options = {
       title: 'Video Picker',
       takePhotoButtonTitle: 'Take Video...',
@@ -86,7 +91,7 @@ export default class App extends React.Component {
           <View
             style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}>
             {this.state.avatarSource === null ? (
-              <Text>Select a Photo</Text>
+              <Text>Selecciona una foto</Text>
             ) : (
               <Image style={styles.avatar} source={this.state.avatarSource} />
             )}
